@@ -1,5 +1,8 @@
 from ConfigParser import SafeConfigParser
 import telepot
+import time
+from commands import *
+from decimal import *
 
 # Get the API key
 parser = SafeConfigParser()
@@ -9,16 +12,14 @@ api = parser.get('shadsbot_settings', 'api_key')
 # Things to do when messages come in
 def handle(msg):
 	chat_id = msg['chat']['id']
-	command = msg['txt']
-	# Debugging: Output
-	print('Command: %s' % command)
-	# Handle actual commands here
-	if command == '/based':
-		bot.sendMessage(chat_id, 'Based Orlando has heard your plea, and it has been denied.')
-
+	command = msg['text']
+        checkcmd(command,chat_id,bot)
+        
 bot = telepot.Bot(api)
+bot.setWebhook()
 bot.notifyOnMessage(handle)
+getcontext().prec = 3
 print('ShadsBot has started. Ready when you are.')
 
 while 1:
-	time.sleep(5)
+	time.sleep(10)
