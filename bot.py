@@ -1,4 +1,8 @@
-from ConfigParser import SafeConfigParser
+# Sometimes works with python3 or python2? Uncomment whichever one works
+try:
+	from ConfigParser import SafeConfigParser
+except:
+	from configparser import *
 import telepot
 import time
 from commands import *
@@ -14,7 +18,7 @@ api = parser.get('shadsbot_settings', 'api_key')
 def handle(msg):
 	chat_id = msg['chat']['id']
 	command = msg['text']
-        checkcmd(command,chat_id,bot,colin,julian,jake)
+	checkcmd(command,chat_id,bot,colin,julian,jake)
         
 bot = telepot.Bot(api)
 bot.setWebhook()
