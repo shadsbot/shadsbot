@@ -4,6 +4,8 @@ import json
 import requests
 import urllib
 import time
+import uuid
+import os
 
 def mtgtext(cardn, text):
 	if text is True:
@@ -97,8 +99,22 @@ Biggest Furry: Jake''')
 	if '/mtgp' in command:
 		cardn = command[6:]
 		picurl = mtgtext(cardn, False)
-		pic = urllib.request.urlretrieve(picurl, 'mtg.jpg')
-		bot.sendPhoto(chat_id, 'mtg.jpg')
+		uid = uuid.uuid4().hex
+		uid += ".jpg"
+		pic = urllib.request.urlretrieve(picurl, uid)
+		pic = open(uid, 'rb')
+		bot.sendChatAction(chat_id, 'upload_photo')
+		response = bot.sendPhoto(chat_id, pic)
+		del pic
+		os.remove(uid)
+	if '/ping' in command:
+		addr = command[6:]
+		response = os.system("ping -n 1 " + addr)
+		if response == 0:
+			msg = "We could reach %s" % addr
+		else:
+			msg = "We could *not* reach %s" % addr
+		bot.sendMessage(chat_id, msg, parse_mode='Markdown')
 	if '/def' in command:
 		word = command[5:]
 		msg = word

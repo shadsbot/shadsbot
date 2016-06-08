@@ -9,7 +9,6 @@ from commands import *
 from decimal import *
 from users import *
 from inlcommands import *
-
 # Get the API key
 parser = SafeConfigParser()
 parser.read('settings.ini')
@@ -19,10 +18,10 @@ api = parser.get('shadsbot_settings', 'api_key')
 def handle(msg):
 	flavor = telepot.flavor(msg)
 	print("Flavor: %s" % flavor)
-	if flavor == 'normal' or flavor == 'chat':
-		chat_id = msg['chat']['id']
-		command = msg['text']
-		checkcmd(command,chat_id,bot,colin,julian,jake)
+#	if flavor == 'normal' or flavor == 'chat':
+	chat_id = msg['chat']['id']
+	command = msg['text']
+	checkcmd(command,chat_id,bot,colin,julian,jake)
 	# elif flavor == 'inline_query':
 	# 	print("Inline Query")
 	# 	checkinlcmd(msg,bot)
