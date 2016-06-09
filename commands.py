@@ -62,7 +62,7 @@ def checkcmd(command, chat_id, bot, colin,julian,jake):
 		except:
 			bot.sendMessage(chat_id, "This only accepts mathematical statements.")
 	if command == '/trutru':
-		pic = open('934.jpg', 'rb')
+		pic = open('trutru.jpg', 'rb')
 		bot.sendPhoto(chat_id, pic)
 	if command == '/test':
 		bot.sendMessage(chat_id, "This bot is recieving commands and is able to respond.")
@@ -76,22 +76,6 @@ Biggest Furry: Jake''')
 		bot.sendMessage(chat_id, 'Your mother was a hamster and your father smelled of elder berries.')
 	if command == '/holyshit':
 		bot.sendMessage(chat_id, 'A talking cat')
-	if '/powerlevel' in command:
-		message = ''
-		if 'jake' in command or 'Jake' in command:
-			message += 'Jake\'s powerlevel: %(jake)i' %{"jake": jake.powerlevel()} + '\n'
-		if 'julian' in command or 'Julian' in command:
-			message += 'Julian\'s powerlevel: %(julian)i' %{"julian": julian.powerlevel()} + '\n'
-		if 'colin' in command or 'Colin' in command:
-			message += 'Colin\'s powerlevel: %(colin)i' % {"colin": colin.powerlevel()} + '\n'
-		bot.sendMessage(chat_id, message)
-	if '/addpower' in command:
-		if 'jake' in command or 'Jake' in command:
-			jake.addpl()
-		if 'julian' in command or 'Julian' in command:
-			julian.addpl()
-		if 'colin' in command or 'Colin' in command:
-			colin.addpl()
 	if '/mtg ' in command:
 		cardn = command[5:]
 		msg = mtgtext(cardn, True)
