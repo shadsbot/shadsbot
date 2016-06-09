@@ -1,4 +1,3 @@
-from users import *
 import re
 import json
 import requests
