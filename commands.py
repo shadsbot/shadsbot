@@ -44,7 +44,7 @@ def mtgtext(cardn, text):
 	picurl = data[0]['editions'][1]['image_url']
 	return picurl
 
-def checkcmd(command, chat_id, bot, colin,julian,jake):
+def checkcmd(command, chat_id, bot):
 	print('Command: %s' % command)
 	print('From: %s' % chat_id)
 	# Handle actual commands here
