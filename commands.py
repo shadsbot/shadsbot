@@ -65,16 +65,6 @@ def checkcmd(command, chat_id, bot):
 		bot.sendPhoto(chat_id, pic)
 	if command == '/test':
 		bot.sendMessage(chat_id, "This bot is recieving commands and is able to respond.")
-	if command == '/furriest':
-		bot.sendMessage(chat_id, '''Here are the current standings:
-Current Mascot: Jake
-Most Posted: Julian
-Most Adorable: Colin
-Biggest Furry: Jake''')
-	if command == '/sam':
-		bot.sendMessage(chat_id, 'Your mother was a hamster and your father smelled of elder berries.')
-	if command == '/holyshit':
-		bot.sendMessage(chat_id, 'A talking cat')
 	if '/mtg ' in command:
 		cardn = command[5:]
 		msg = mtgtext(cardn, True)
